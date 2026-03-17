@@ -12,6 +12,21 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      - name: Write HF Space README
+        run: |
+          cat > README.md << 'EOF'
+          ---
+          title: AI Data Dashboard API
+          emoji: chart_with_upwards_trend
+          colorFrom: blue
+          colorTo: indigo
+          sdk: docker
+          app_port: 7860
+          pinned: false
+          ---
+          # AI Data Analysis Dashboard Backend API
+          FastAPI backend providing endpoints for analysis, anomaly detection, and AI-powered insights.
+          EOF
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
