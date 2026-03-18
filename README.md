@@ -97,4 +97,3 @@ For production, set it to your Hugging Face Space URL.
 ##  Contributing
 Contributions, issues, and feature requests are welcome!
 
-Made with ❤️ for Data Science & AI.
