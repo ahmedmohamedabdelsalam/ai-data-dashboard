@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
 import { SummaryCard } from "@/components/dashboard/SummaryCard";
 import { CorrelationCard } from "@/components/dashboard/CorrelationCard";
 import { DistributionCard } from "@/components/dashboard/DistributionCard";
@@ -18,6 +19,7 @@ export default function HomePage() {
     correlation,
     anomalies,
     insights,
+    distributions,
     loading,
     uploading,
     error,
@@ -35,8 +37,11 @@ export default function HomePage() {
     try {
       const res = await uploadDataset(file);
       setDatasetName(res.filename);
-    } catch (e: any) {
-      const msg = e.response?.data?.detail ?? "Failed to upload dataset.";
+    } catch (e: unknown) {
+      let msg = "Failed to upload dataset.";
+      if (axios.isAxiosError(e)) {
+        msg = e.response?.data?.detail ?? msg;
+      }
       setError(msg);
     } finally {
       setUploading(false);
@@ -52,8 +57,11 @@ export default function HomePage() {
       if (result.dataset_name) {
         setDatasetName(result.dataset_name);
       }
-    } catch (e: any) {
-      const msg = e.response?.data?.detail ?? "Failed to run full analysis.";
+    } catch (e: unknown) {
+      let msg = "Failed to run full analysis.";
+      if (axios.isAxiosError(e)) {
+        msg = e.response?.data?.detail ?? msg;
+      }
       setError(msg);
     } finally {
       setLoading(false);
@@ -135,7 +143,7 @@ export default function HomePage() {
         <div className="space-y-6 lg:col-span-2">
           <CorrelationCard correlation={correlation} />
 
-          <DistributionCard summary={summary} distributions={undefined} />
+          <DistributionCard summary={summary} distributions={distributions} />
 
           <AIInsightsPanel insights={insights} />
         </div>

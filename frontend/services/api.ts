@@ -5,7 +5,9 @@ import type {
 } from "@/types/api";
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000",
+  baseURL:
+    process.env.NEXT_PUBLIC_API_URL ||
+    "https://abdelsalam-1-ai-data-dashboard-api.hf.space",
 });
 
 export async function uploadDataset(file: File): Promise<UploadResponse> {

@@ -8,6 +8,7 @@ import type {
   CorrelationResponse,
   AnomalyResponse,
   AIInsightsResponse,
+  HistogramBin,
 } from "@/types/api";
 
 interface AnalysisState {
@@ -16,6 +17,7 @@ interface AnalysisState {
   correlation: CorrelationResponse | null;
   anomalies: AnomalyResponse | null;
   insights: AIInsightsResponse | null;
+  distributions: Record<string, HistogramBin[]> | null;
   loading: boolean;
   uploading: boolean;
   error: string | null;
@@ -38,6 +40,7 @@ export const useAnalysisStore = create<AnalysisState>()(
       correlation: null,
       anomalies: null,
       insights: null,
+      distributions: null,
       loading: false,
       uploading: false,
       error: null,
@@ -53,6 +56,7 @@ export const useAnalysisStore = create<AnalysisState>()(
           correlation: payload.correlation,
           anomalies: payload.anomalies,
           insights: payload.insights,
+          distributions: payload.distributions ?? null,
         }),
       setDarkMode: (v) => set({ darkMode: v }),
       clear: () =>
@@ -62,6 +66,7 @@ export const useAnalysisStore = create<AnalysisState>()(
           correlation: null,
           anomalies: null,
           insights: null,
+          distributions: null,
           error: null,
         }),
     }),
@@ -73,6 +78,7 @@ export const useAnalysisStore = create<AnalysisState>()(
         correlation: state.correlation,
         anomalies: state.anomalies,
         insights: state.insights,
+        distributions: state.distributions,
         darkMode: state.darkMode,
       }),
     }
