@@ -7,17 +7,17 @@ sdk: docker
 pinned: false
 ---
 
-# AI Data Analysis Dashboard 📊
+# AI Data Analysis Dashboard 
 
 An advanced, full-stack platform for automated data analysis and visualization, powered by Artificial Intelligence. This project provides businesses and data scientists with instant insights, anomaly detection, correlation analysis, and data distributions from any customized CSV or Excel dataset.
 
-## 🚀 Live Demos
+##  Live Demos
 - **Frontend (Web App)**: Hosted on [Vercel](https://frontend-nine-rust.vercel.app/) *(insert your actual vercel domain here if changed)*
 - **Backend (API Server)**: Hosted on [Hugging Face Spaces](https://huggingface.co/spaces/Abdelsalam-1/ai-data-dashboard-api)
 
 ---
 
-## ✨ Core Features
+##  Core Features
 
 1. **Automated Data Summarization**: Instantly calculates rows, columns, memory usage, and column data types.
 2. **Correlation Analysis**: Generates an interactive Correlation Heatmap to identify strong positive/negative relationships between numeric variables.
@@ -27,7 +27,7 @@ An advanced, full-stack platform for automated data analysis and visualization, 
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Frontend (UI / Client)
 - **Framework**: Next.js 14 (React)
@@ -45,7 +45,7 @@ An advanced, full-stack platform for automated data analysis and visualization, 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 ├── frontend/                 # Next.js Application
@@ -67,7 +67,7 @@ An advanced, full-stack platform for automated data analysis and visualization, 
 
 ---
 
-## 💻 Running Locally
+##  Running Locally
 
 ### 1. Start the Backend
 ```bash
@@ -94,7 +94,7 @@ For production, set it to your Hugging Face Space URL.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 Contributions, issues, and feature requests are welcome!
 
 Made with ❤️ for Data Science & AI.
